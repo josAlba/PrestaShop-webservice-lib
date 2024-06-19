@@ -23,7 +23,10 @@ class Display extends DisplayAbstract
         public bool $lowStockAlert = false,
         public bool $defaultOn = false,
         public bool $availableDate = false,
-        public bool $associations = false
+        public bool $associations = false,
+        public bool $ean13 = false,
+        public bool $isbn = false,
+        public bool $mpn = false,
     ) {
     }
 }

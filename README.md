@@ -23,14 +23,14 @@ use prestashop\prestashopWebserviceLib\Shared\Domain\Filter;
 
 ## Método getAll
 
-El método `getAll()` se utiliza para obtener todos los elementos disponibles. Evoca internalmente un método `getRaw()` para obtener la respuesta en bruto de la API y la deserializa al objeto.
+El método `__invoke()` se utiliza para obtener todos los elementos disponibles. Evoca internalmente un método `getRaw()` para obtener la respuesta en bruto de la API y la deserializa al objeto.
 
 ```php
-$get = new Get(/* Parámetros del constructor */);
+$get = new Get('url','token');
 $display = new DisplayFull();
 $filter = new Filter(/* Parámetros del constructor */);
 
-$result = $get->getAll($display, $filter);
+$result = $get($display, $filter);
 ```
 
 ### Parámetros

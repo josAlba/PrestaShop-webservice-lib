@@ -7,7 +7,7 @@ use prestashop\prestashopWebserviceLib\Shared\Domain\DisplayFull;
 use prestashop\prestashopWebserviceLib\Shared\Domain\Filter;
 use prestashop\prestashopWebserviceLib\Shared\Domain\Resources;
 
-abstract class AbstractWebService
+abstract class GetAbstract
 {
     protected PrestaShopWebservice $webService;
 
@@ -16,8 +16,8 @@ abstract class AbstractWebService
         $this->webService = new PrestaShopWebservice($url, $key);
     }
 
-    final public function getRaw(Display $display = new DisplayFull(), ?Filter $filter = null): string
+    final public function getRaw(string $resource, Display $display = new DisplayFull(), ?Filter $filter = null): string
     {
-        return $this->webService->get(Resources::PRODUCTS->value, $display, $filter);
+        return $this->webService->get($resource, $display, $filter);
     }
 }
