@@ -13,7 +13,7 @@ use prestashop\prestashopWebserviceLib\StockAvaliables\Domain\PrestashopStockAva
 
 class Get extends GetAbstract
 {
-    public function __invoke(Display $display = new DisplayFull(), ?Filter $filter = null): string
+    public function __invoke(Display $display = new DisplayFull(), ?Filter $filter = null): PrestashopStockAvailable
     {
         return SerializerBuilder::create()->build()->deserialize(
             $this->getRaw(Resources::STOCK_AVAILABLES->value,$display, $filter),

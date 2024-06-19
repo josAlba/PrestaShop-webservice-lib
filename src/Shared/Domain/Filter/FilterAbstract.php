@@ -18,6 +18,6 @@ abstract class FilterAbstract implements Filter
             $query['filter['.$snakeCaseKey.']'] = $value;
         }
 
-        return $query;
+        return \array_filter($query);
     }
 }
