@@ -30,8 +30,8 @@ XML;
 
         $productXml = PrestashopProduct::byXml($xml);
 
-        self::assertNotEmpty($productXml->products);
-        self::assertEquals($productXml->products[0]->id, $productObject->products[0]->id);
-        self::assertEquals($productXml->products[0]->quantity, $productObject->products[0]->quantity);
+        self::assertNotEmpty($productXml->prestashopProduct);
+        self::assertEquals($productXml->prestashopProduct[0]->id, $productObject->prestashopProduct[0]->id);
+        self::assertEquals($productXml->prestashopProduct[0]->quantity, $productObject->prestashopProduct[0]->quantity);
     }
 }

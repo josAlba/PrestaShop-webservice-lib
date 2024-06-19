@@ -1,6 +1,6 @@
 <?php
 
-namespace prestashop\prestashopWebserviceLib\Shared\Domain;
+namespace prestashop\prestashopWebserviceLib\Shared\Domain\Display;
 
 abstract class DisplayAbstract implements Display
 {

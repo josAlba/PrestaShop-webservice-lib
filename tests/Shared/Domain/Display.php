@@ -2,7 +2,7 @@
 
 namespace prestashop\prestashopWebserviceLib\Tests\Shared\Domain;
 
-use prestashop\prestashopWebserviceLib\Shared\Domain\DisplayAbstract;
+use prestashop\prestashopWebserviceLib\Shared\Domain\Display\DisplayAbstract;
 
 class Display extends DisplayAbstract
 {

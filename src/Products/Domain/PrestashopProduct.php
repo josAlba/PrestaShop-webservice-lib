@@ -6,7 +6,7 @@ use JMS\Serializer\Annotation;
 use JMS\Serializer\Annotation\XmlList;
 use JMS\Serializer\Annotation\XmlNamespace;
 use JMS\Serializer\Annotation\XmlRoot;
-use prestashop\prestashopWebserviceLib\Shared\Domain\PrestashopAbstract;
+use prestashop\prestashopWebserviceLib\Shared\Domain\Item\PrestashopAbstract;
 
 /**
  * @XmlRoot("prestashop")
@@ -24,7 +24,7 @@ class PrestashopProduct extends PrestashopAbstract
          * @Annotation\Type("array<prestashop\prestashopWebserviceLib\Products\Domain\Product>")
          * @Annotation\SerializedName("products")
          */
-        public readonly array $products
+        public array $products
     ) {
     }
 }

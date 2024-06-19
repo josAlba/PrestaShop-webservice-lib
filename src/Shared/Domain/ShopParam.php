@@ -1,6 +1,6 @@
 <?php
 
-namespace prestashop\prestashopWebserviceLib\Shared\Application;
+namespace prestashop\prestashopWebserviceLib\Shared\Domain;
 
 readonly class ShopParam
 {

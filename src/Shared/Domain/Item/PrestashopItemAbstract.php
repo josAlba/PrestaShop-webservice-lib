@@ -1,10 +1,11 @@
 <?php
 
-namespace prestashop\prestashopWebserviceLib\Shared\Domain;
+namespace prestashop\prestashopWebserviceLib\Shared\Domain\Item;
 
 use JMS\Serializer\SerializerBuilder;
+use prestashop\prestashopWebserviceLib\Shared\Domain\Formats;
 
-abstract class PrestashopItemAbstract implements PrestashopItemInterface
+abstract class PrestashopItemAbstract implements PrestashopItem
 {
     public function __toString(): string
     {

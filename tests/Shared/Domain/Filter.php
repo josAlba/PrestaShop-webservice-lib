@@ -2,7 +2,7 @@
 
 namespace prestashop\prestashopWebserviceLib\Tests\Shared\Domain;
 
-use prestashop\prestashopWebserviceLib\Shared\Domain\FilterAbstract;
+use prestashop\prestashopWebserviceLib\Shared\Domain\Filter\FilterAbstract;
 
 class Filter extends FilterAbstract
 {

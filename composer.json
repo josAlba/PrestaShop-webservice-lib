@@ -28,7 +28,8 @@
     "ext-libxml": "*",
     "ext-simplexml": "*",
     "guzzlehttp/guzzle": "^7.5",
-    "jms/serializer-bundle": "^5.2"
+    "jms/serializer-bundle": "^5.2",
+    "doctrine/annotations": "^2.0"
   },
   "require-dev": {
     "roave/security-advisories": "dev-latest",

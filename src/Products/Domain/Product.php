@@ -3,7 +3,7 @@
 namespace prestashop\prestashopWebserviceLib\Products\Domain;
 
 use JMS\Serializer\Annotation;
-use prestashop\prestashopWebserviceLib\Shared\Domain\PrestashopItemAbstract;
+use prestashop\prestashopWebserviceLib\Shared\Domain\Item\PrestashopItemAbstract;
 
 final class Product extends PrestashopItemAbstract
 {

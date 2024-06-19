@@ -2,7 +2,7 @@
 
 namespace prestashop\prestashopWebserviceLib\Shared\Domain;
 
-interface Filter
+interface Prestashop
 {
-    public function getFilterQuery(): array;
+    public function __toString(): string;
 }

@@ -34,7 +34,7 @@ XML;
         $stockAvailableXml = PrestashopStockAvailable::byXml($xml);
 
         self::assertNotEmpty($stockAvailableXml->stockAvailable);
-        self::assertEquals($stockAvailableXml->stockAvailable[0]->id, $stockAvailable->stockAvailable[0]->id);
+        self::assertEquals($stockAvailableXml->stockAvailable[0]->idProduct, $stockAvailable->stockAvailable[0]->idProduct);
         self::assertEquals($stockAvailableXml->stockAvailable[0]->quantity, $stockAvailable->stockAvailable[0]->quantity);
     }
 }

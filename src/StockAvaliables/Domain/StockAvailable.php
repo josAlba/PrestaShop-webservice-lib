@@ -6,7 +6,7 @@
 namespace prestashop\prestashopWebserviceLib\StockAvaliables\Domain;
 
 use JMS\Serializer\Annotation;
-use prestashop\prestashopWebserviceLib\Shared\Domain\PrestashopItemAbstract;
+use prestashop\prestashopWebserviceLib\Shared\Domain\Item\PrestashopItemAbstract;
 
 class StockAvailable extends PrestashopItemAbstract
 {

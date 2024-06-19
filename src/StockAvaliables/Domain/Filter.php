@@ -5,10 +5,7 @@
 
 namespace prestashop\prestashopWebserviceLib\StockAvaliables\Domain;
 
-use JMS\Serializer\Annotation;
-use prestashop\prestashopWebserviceLib\Shared\Domain\Filter as FilterInterface;
-use prestashop\prestashopWebserviceLib\Shared\Domain\FilterAbstract;
-use prestashop\prestashopWebserviceLib\Shared\Domain\PrestashopItemAbstract;
+use prestashop\prestashopWebserviceLib\Shared\Domain\Filter\FilterAbstract;
 
 class Filter extends FilterAbstract
 {

@@ -2,14 +2,13 @@
 
 namespace prestashop\prestashopWebserviceLib\Shared\Application;
 
-use prestashop\prestashopWebserviceLib\Shared\Domain\Display;
-use prestashop\prestashopWebserviceLib\Shared\Domain\DisplayFull;
-use prestashop\prestashopWebserviceLib\Shared\Domain\Filter;
-use prestashop\prestashopWebserviceLib\Shared\Domain\Resources;
+use prestashop\prestashopWebserviceLib\Shared\Domain\Display\Display;
+use prestashop\prestashopWebserviceLib\Shared\Domain\Display\DisplayFull;
+use prestashop\prestashopWebserviceLib\Shared\Domain\Filter\Filter;
 
 abstract class GetAbstract
 {
-    protected PrestaShopWebservice $webService;
+    private PrestaShopWebservice $webService;
 
     public function __construct(string $url, string $key)
     {

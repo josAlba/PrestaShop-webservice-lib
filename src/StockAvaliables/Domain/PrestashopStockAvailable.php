@@ -6,7 +6,7 @@ use JMS\Serializer\Annotation;
 use JMS\Serializer\Annotation\XmlList;
 use JMS\Serializer\Annotation\XmlNamespace;
 use JMS\Serializer\Annotation\XmlRoot;
-use prestashop\prestashopWebserviceLib\Shared\Domain\PrestashopAbstract;
+use prestashop\prestashopWebserviceLib\Shared\Domain\Item\PrestashopAbstract;
 
 /**
  * @XmlRoot("prestashop")

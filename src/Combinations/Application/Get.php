@@ -5,9 +5,9 @@ namespace prestashop\prestashopWebserviceLib\Combinations\Application;
 use JMS\Serializer\SerializerBuilder;
 use prestashop\prestashopWebserviceLib\Combinations\Domain\PrestashopCombination;
 use prestashop\prestashopWebserviceLib\Shared\Application\GetAbstract;
-use prestashop\prestashopWebserviceLib\Shared\Domain\Display;
-use prestashop\prestashopWebserviceLib\Shared\Domain\DisplayFull;
-use prestashop\prestashopWebserviceLib\Shared\Domain\Filter;
+use prestashop\prestashopWebserviceLib\Shared\Domain\Display\Display;
+use prestashop\prestashopWebserviceLib\Shared\Domain\Display\DisplayFull;
+use prestashop\prestashopWebserviceLib\Shared\Domain\Filter\Filter;
 use prestashop\prestashopWebserviceLib\Shared\Domain\Formats;
 use prestashop\prestashopWebserviceLib\Shared\Domain\Resources;
 

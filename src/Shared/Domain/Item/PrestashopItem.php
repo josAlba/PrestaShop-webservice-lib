@@ -1,8 +1,8 @@
 <?php
 
-namespace prestashop\prestashopWebserviceLib\Shared\Domain;
+namespace prestashop\prestashopWebserviceLib\Shared\Domain\Item;
 
-interface PrestashopItemInterface
+interface PrestashopItem
 {
     public function __serialize(): array;
 
