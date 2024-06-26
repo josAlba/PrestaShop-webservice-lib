@@ -20,17 +20,17 @@ class StockAvailable extends PrestashopItemAbstract
          * @Annotation\Type("string")
          * @Annotation\SerializedName("id_product")
          */
-        public ?string $idProduct = null,
+        public string $idProduct = '0',
         /**
          * @Annotation\Type("string")
          * @Annotation\SerializedName("id_product_attribute")
          */
-        public ?string $idProductAttribute = null,
+        public string $idProductAttribute = '0',
         /**
          * @Annotation\Type("string")
          * @Annotation\SerializedName("id_shop")
          */
-        public ?string $idShop = null,
+        public string $idShop = '1',
         /**
          * @Annotation\Type("string")
          * @Annotation\SerializedName("id_shop_group")
@@ -45,12 +45,12 @@ class StockAvailable extends PrestashopItemAbstract
          * @Annotation\Type("string")
          * @Annotation\SerializedName("depends_on_stock")
          */
-        public ?string $dependsOnStock = null,
+        public string $dependsOnStock = '0',
         /**
          * @Annotation\Type("string")
          * @Annotation\SerializedName("out_of_stock")
          */
-        public ?string $outOfStock = null,
+        public string $outOfStock = '0',
         /**
          * @Annotation\Type("string")
          * @Annotation\SerializedName("location")
