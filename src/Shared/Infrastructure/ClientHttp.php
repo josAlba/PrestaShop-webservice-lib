@@ -2,11 +2,12 @@
 
 namespace prestashop\prestashopWebserviceLib\Shared\Infrastructure;
 
+use prestashop\prestashopWebserviceLib\Shared\Domain\ClientHttp as ClientHttpInterface;
 use GuzzleHttp\Client;
 use RuntimeException;
 use Throwable;
 
-class ClientHttp
+class ClientHttp implements ClientHttpInterface
 {
     private Client $client;
 
