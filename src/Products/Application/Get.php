@@ -13,10 +13,10 @@ use prestashop\prestashopWebserviceLib\Shared\Domain\Resources;
 
 class Get extends GetAbstract
 {
-    public function __invoke(Display $display = new DisplayFull(), ?Filter $filter = null): PrestashopProduct
+    public function __invoke(?Display $display = null, ?Filter $filter = null): PrestashopProduct
     {
         return SerializerBuilder::create()->build()->deserialize(
-            $this->getRaw(Resources::PRODUCTS,$display, $filter),
+            $this->getRaw(Resources::PRODUCTS,$display ?? new DisplayFull(), $filter),
             PrestashopProduct::class,
             Formats::XML
         );

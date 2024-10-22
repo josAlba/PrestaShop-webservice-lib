@@ -9,4 +9,5 @@ class Resources
     public const PRODUCTS = 'products';
     public const COMBINATIONS = 'combinations';
     public const ORDERS = 'orders';
+    public const ADDRESSES = 'addresses';
 }

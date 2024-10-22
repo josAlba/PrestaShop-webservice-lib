@@ -13,10 +13,10 @@ use prestashop\prestashopWebserviceLib\StockAvaliables\Domain\PrestashopStockAva
 
 class Get extends GetAbstract
 {
-    public function __invoke(Display $display = new DisplayFull(), ?Filter $filter = null): PrestashopStockAvailable
+    public function __invoke(?Display $display = null, ?Filter $filter = null): PrestashopStockAvailable
     {
         return SerializerBuilder::create()->build()->deserialize(
-            $this->getRaw(Resources::STOCK_AVAILABLES,$display, $filter),
+            $this->getRaw(Resources::STOCK_AVAILABLES, $display ?? new DisplayFull(), $filter),
             PrestashopStockAvailable::class,
             Formats::XML
         );
