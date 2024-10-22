@@ -16,9 +16,9 @@ class Get extends GetAbstract
     public function __invoke(Display $display = new DisplayFull(), ?Filter $filter = null): PrestashopProduct
     {
         return SerializerBuilder::create()->build()->deserialize(
-            $this->getRaw(Resources::PRODUCTS->value,$display, $filter),
+            $this->getRaw(Resources::PRODUCTS,$display, $filter),
             PrestashopProduct::class,
-            Formats::XML->value
+            Formats::XML
         );
     }
 }

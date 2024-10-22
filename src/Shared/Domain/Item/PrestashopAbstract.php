@@ -10,11 +10,11 @@ abstract class PrestashopAbstract implements Prestashop
 {
     public function __toString(): string
     {
-        return SerializerBuilder::create()->build()->serialize($this, Formats::XML->value);
+        return SerializerBuilder::create()->build()->serialize($this, Formats::XML);
     }
 
     public static function byXml(string $xml): static
     {
-        return SerializerBuilder::create()->build()->deserialize($xml, static::class, Formats::XML->value);
+        return SerializerBuilder::create()->build()->deserialize($xml, static::class, Formats::XML);
     }
 }

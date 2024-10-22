@@ -2,7 +2,7 @@
 
 namespace prestashop\prestashopWebserviceLib\Shared\Domain;
 
-enum Formats: string
+class Formats
 {
-    case XML = 'xml';
+    public const XML = 'xml';
 }

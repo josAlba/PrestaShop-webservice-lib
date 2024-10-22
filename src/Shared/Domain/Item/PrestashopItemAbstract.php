@@ -9,7 +9,7 @@ abstract class PrestashopItemAbstract implements PrestashopItem
 {
     public function __toString(): string
     {
-        return SerializerBuilder::create()->build()->serialize($this, Formats::XML->value);
+        return SerializerBuilder::create()->build()->serialize($this, Formats::XML);
     }
 
     public function __serialize(): array

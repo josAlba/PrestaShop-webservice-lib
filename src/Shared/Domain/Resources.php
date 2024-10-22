@@ -2,10 +2,11 @@
 
 namespace prestashop\prestashopWebserviceLib\Shared\Domain;
 
-enum Resources: string
+class Resources
 {
-    case STOCKS = 'stocks';
-    case STOCK_AVAILABLES = 'stock_availables';
-    case PRODUCTS = 'products';
-    case COMBINATIONS = 'combinations';
+    public const STOCKS = 'stocks';
+    public const STOCK_AVAILABLES = 'stock_availables';
+    public const PRODUCTS = 'products';
+    public const COMBINATIONS = 'combinations';
+    public const ORDERS = 'orders';
 }

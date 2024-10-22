@@ -24,7 +24,7 @@ class PrestashopCombination extends PrestashopAbstract
          * @Annotation\Type("array<prestashop\prestashopWebserviceLib\Combinations\Domain\Combination>")
          * @Annotation\SerializedName("combinations")
          */
-        public readonly array $combinations
+        public array $combinations
     ) {
     }
 }

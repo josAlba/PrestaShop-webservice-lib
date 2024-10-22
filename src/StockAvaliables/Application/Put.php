@@ -11,6 +11,6 @@ class Put extends PutAbstract
 {
     public function __invoke(PrestashopItemUpdate $item, ShopParam $shopParam): void
     {
-        $this->put(Resources::STOCK_AVAILABLES->value, $item, $shopParam);
+        $this->put(Resources::STOCK_AVAILABLES, $item, $shopParam);
     }
 }
