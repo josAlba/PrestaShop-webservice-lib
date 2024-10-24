@@ -10,4 +10,5 @@ class Resources
     public const COMBINATIONS = 'combinations';
     public const ORDERS = 'orders';
     public const ADDRESSES = 'addresses';
+    public const CUSTOMER = 'customers';
 }
