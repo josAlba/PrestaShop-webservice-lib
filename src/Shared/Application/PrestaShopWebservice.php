@@ -46,6 +46,11 @@ class PrestaShopWebservice
         return $this->client->get($resource, $query);
     }
 
+    public function getWithoutParameters(string $resource): string
+    {
+        return $this->client->getWithoutParameters($resource);
+    }
+
     public function edit(string $resource, PrestashopItemUpdate $item, ShopParam $shopParam): string
     {
         return $this->client->put($resource, $shopParam->getQuery(), $item->__toString());

@@ -51,6 +51,17 @@ class ClientHttp implements ClientHttpInterface
         }
     }
 
+    public function getWithoutParameters(string $url): string
+    {
+        try {
+            $response = $this->client->get($url);
+
+            return $response->getBody()->getContents();
+        } catch (Throwable $exception) {
+            throw new RuntimeException($exception->getMessage());
+        }
+    }
+
     /**
      * @param string $url
      * @param array $query

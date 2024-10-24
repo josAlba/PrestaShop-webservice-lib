@@ -23,4 +23,8 @@ abstract class GetAbstract
     ): string {
         return $this->webService->get($resource, $display ?? new DisplayFull(), $filter, $queryExtra);
     }
+
+    final public function getRawWithoutParams(string $resource): string {
+        return $this->webService->getWithoutParameters($resource);
+    }
 }

@@ -16,7 +16,7 @@ class Get extends GetAbstract
     public function __invoke(int $id, ?Display $display = null, ?Filter $filter = null): PrestashopAddress
     {
         return SerializerBuilder::create()->build()->deserialize(
-            $this->getRaw(Resources::ADDRESSES.'/'.$id, $display ?? new DisplayFull(), $filter),
+            $this->getRawWithoutParams(Resources::ADDRESSES.'/'.$id),
             PrestashopAddress::class,
             Formats::XML
         );
