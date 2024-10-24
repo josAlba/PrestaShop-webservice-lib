@@ -4,8 +4,8 @@ namespace prestashop\prestashopWebserviceLib\Shared\Application;
 
 use prestashop\prestashopWebserviceLib\Shared\Domain\Display\Display;
 use prestashop\prestashopWebserviceLib\Shared\Domain\Display\DisplayFull;
-use prestashop\prestashopWebserviceLib\Shared\Domain\Item\PrestashopItemUpdate;
 use prestashop\prestashopWebserviceLib\Shared\Domain\Filter\Filter;
+use prestashop\prestashopWebserviceLib\Shared\Domain\Item\PrestashopItemUpdate;
 use prestashop\prestashopWebserviceLib\Shared\Domain\ShopParam;
 use prestashop\prestashopWebserviceLib\Shared\Infrastructure\ClientHttp;
 
@@ -25,12 +25,22 @@ class PrestaShopWebservice
         );
     }
 
-    public function get(string $resource, Display $display = new DisplayFull(), ?Filter $filter = null): string
-    {
+    public function get(
+        string $resource,
+        ?Display $display = null,
+        ?Filter $filter = null,
+        array $queryExtra = []
+    ): string {
+        $display = $display ?? new DisplayFull();
+
         $query = ['display' => (string)$display];
 
         if ($filter !== null) {
             $query += $filter->getFilterQuery();
+        }
+
+        if (!empty($queryExtra)) {
+            $query += $queryExtra;
         }
 
         return $this->client->get($resource, $query);

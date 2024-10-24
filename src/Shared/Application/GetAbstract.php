@@ -15,8 +15,12 @@ abstract class GetAbstract
         $this->webService = new PrestaShopWebservice($url, $key);
     }
 
-    final public function getRaw(string $resource, Display $display = new DisplayFull(), ?Filter $filter = null): string
-    {
-        return $this->webService->get($resource, $display, $filter);
+    final public function getRaw(
+        string $resource,
+        ?Display $display = null,
+        ?Filter $filter = null,
+        array $queryExtra = []
+    ): string {
+        return $this->webService->get($resource, $display ?? new DisplayFull(), $filter, $queryExtra);
     }
 }

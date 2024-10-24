@@ -13,10 +13,10 @@ use prestashop\prestashopWebserviceLib\Shared\Domain\Resources;
 
 class Get extends GetAbstract
 {
-    public function __invoke(?Display $display = null, ?Filter $filter = null): PrestashopOrder
+    public function __invoke(?Display $display = null, ?Filter $filter = null, array $queryExtra = []): PrestashopOrder
     {
         return SerializerBuilder::create()->build()->deserialize(
-            $this->getRaw(Resources::ORDERS, $display ?? new DisplayFull(), $filter),
+            $this->getRaw(Resources::ORDERS, $display ?? new DisplayFull(), $filter, $queryExtra),
             PrestashopOrder::class,
             Formats::XML
         );
