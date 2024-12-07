@@ -13,7 +13,7 @@ use prestashop\prestashopWebserviceLib\Shared\Domain\Resources;
 
 class Get extends GetAbstract
 {
-    public function __invoke(Display $display = new DisplayFull(), ?Filter $filter = null): PrestashopCombination
+    public function __invoke(?Display $display = null, ?Filter $filter = null): PrestashopCombination
     {
         return SerializerBuilder::create()->build()->deserialize(
             $this->getRaw(Resources::COMBINATIONS, $display, $filter),
