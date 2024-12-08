@@ -2,8 +2,8 @@
 
 namespace prestashop\prestashopWebserviceLib\Shared\Infrastructure;
 
-use prestashop\prestashopWebserviceLib\Shared\Domain\ClientHttp as ClientHttpInterface;
 use GuzzleHttp\Client;
+use prestashop\prestashopWebserviceLib\Shared\Domain\ClientHttp as ClientHttpInterface;
 use RuntimeException;
 use Throwable;
 
@@ -11,9 +11,13 @@ class ClientHttp implements ClientHttpInterface
 {
     private Client $client;
 
-    public function __construct(string $uri, array $headers)
+    public function __construct(string $uri, array $headers = [], array $params = [])
     {
-        $this->client = new Client(['base_uri' => $uri, 'headers' => $headers,]);
+        $this->client = new Client([
+            'base_uri' => $uri,
+            'headers' => $headers,
+            'query' => $params,
+        ]);
     }
 
     /**

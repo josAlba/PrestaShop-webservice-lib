@@ -9,9 +9,9 @@ abstract class PutAbstract
 {
     private PrestaShopWebservice $webService;
 
-    public function __construct(string $url, string $key)
+    public function __construct(string $url, string $key, bool $useWsKey = false)
     {
-        $this->webService = new PrestaShopWebservice($url, $key);
+        $this->webService = new PrestaShopWebservice($url, $key, $useWsKey);
     }
 
     final public function put(string $resource, PrestashopItemUpdate $item, ShopParam $shopParam): void

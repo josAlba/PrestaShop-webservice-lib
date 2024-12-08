@@ -12,9 +12,20 @@ use prestashop\prestashopWebserviceLib\Shared\Infrastructure\ClientHttp;
 class PrestaShopWebservice
 {
     private ClientHttp $client;
+    private bool $useWsKey;
+    private string $token;
 
-    public function __construct(string $url, string $key)
+    public function __construct(string $url, string $key, bool $useWsKey = false)
     {
+        $this->token = $key;
+        $this->useWsKey = $useWsKey;
+
+        if ($useWsKey) {
+            $this->client = new ClientHttp($url.'/api/');
+
+            return;
+        }
+
         $encodedAuth = base64_encode($key.":");
 
         $this->client = new ClientHttp(
@@ -25,6 +36,18 @@ class PrestaShopWebservice
         );
     }
 
+    /**
+     * @return array<string, string>
+     */
+    public function getDefaultParameters(): array
+    {
+        if (!$this->useWsKey) {
+            return [];
+        }
+
+        return ['ws_key' => $this->token];
+    }
+
     public function get(
         string $resource,
         ?Display $display = null,
@@ -33,7 +56,7 @@ class PrestaShopWebservice
     ): string {
         $display = $display ?? new DisplayFull();
 
-        $query = ['display' => (string)$display];
+        $query = array_merge($this->getDefaultParameters(), ['display' => (string)$display]);
 
         if ($filter !== null) {
             $query += $filter->getFilterQuery();
@@ -48,11 +71,15 @@ class PrestaShopWebservice
 
     public function getWithoutParameters(string $resource): string
     {
-        return $this->client->getWithoutParameters($resource);
+        return $this->client->get($resource, $this->getDefaultParameters());
     }
 
     public function edit(string $resource, PrestashopItemUpdate $item, ShopParam $shopParam): string
     {
-        return $this->client->put($resource, $shopParam->getQuery(), $item->__toString());
+        return $this->client->put(
+            $resource,
+            array_merge($this->getDefaultParameters(), $shopParam->getQuery()),
+            $item->__toString()
+        );
     }
 }
