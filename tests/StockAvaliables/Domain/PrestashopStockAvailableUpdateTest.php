@@ -13,10 +13,15 @@ class PrestashopStockAvailableUpdateTest extends TestCase
         $xml = <<<XML
 <?xml version="1.0" encoding="UTF-8"?>
 <prestashop xmlns:xlink="http://www.w3.org/1999/xlink">
-    <stock_available>
-        <id><![CDATA[1]]></id>
-        <quantity><![CDATA[10]]></quantity>
-    </stock_available>
+  <stock_available>
+    <id><![CDATA[1]]></id>
+    <id_product><![CDATA[0]]></id_product>
+    <id_product_attribute><![CDATA[0]]></id_product_attribute>
+    <id_shop><![CDATA[1]]></id_shop>
+    <quantity><![CDATA[10]]></quantity>
+    <depends_on_stock><![CDATA[0]]></depends_on_stock>
+    <out_of_stock><![CDATA[0]]></out_of_stock>
+  </stock_available>
 </prestashop>
 XML;
 
