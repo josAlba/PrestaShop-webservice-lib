@@ -12,4 +12,5 @@ class Resources
     public const ADDRESSES = 'addresses';
     public const CUSTOMER = 'customers';
     public const COUNTRIES = 'countries';
+    public const IMAGES = 'images';
 }
