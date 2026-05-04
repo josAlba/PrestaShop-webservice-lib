@@ -3,7 +3,7 @@
 namespace prestashop\prestashopWebserviceLib\Tests\Prod;
 
 use PHPUnit\Framework\TestCase;
-use prestashop\prestashopWebserviceLib\Invoices\Application\Get;
+use prestashop\prestashopWebserviceLib\Orders\Application\Get;
 
 /**
  * @group ignored-group

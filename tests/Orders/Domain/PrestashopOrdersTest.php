@@ -3,7 +3,7 @@
 namespace prestashop\prestashopWebserviceLib\Tests\Orders\Domain;
 
 use PHPUnit\Framework\TestCase;
-use prestashop\prestashopWebserviceLib\Invoices\Domain\PrestashopOrder;
+use prestashop\prestashopWebserviceLib\Orders\Domain\PrestashopOrder;
 
 class PrestashopOrdersTest extends TestCase
 {

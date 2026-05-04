@@ -4,9 +4,9 @@ namespace prestashop\prestashopWebserviceLib\Tests\Prod;
 
 use PHPUnit\Framework\TestCase;
 use prestashop\prestashopWebserviceLib\Shared\Domain\ShopParam;
-use prestashop\prestashopWebserviceLib\StockAvaliables\Application\Put;
-use prestashop\prestashopWebserviceLib\StockAvaliables\Domain\PrestashopStockAvailableUpdate;
-use prestashop\prestashopWebserviceLib\StockAvaliables\Domain\StockAvailable;
+use prestashop\prestashopWebserviceLib\StockAvailables\Application\Put;
+use prestashop\prestashopWebserviceLib\StockAvailables\Domain\PrestashopStockAvailableUpdate;
+use prestashop\prestashopWebserviceLib\StockAvailables\Domain\StockAvailable;
 
 /**
  * @group ignored-group

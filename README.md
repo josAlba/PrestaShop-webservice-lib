@@ -12,54 +12,86 @@ composer require josalba/prestashop-webservice-lib
 
 ## Usage
 
-La clase `Get` se encuentra en el los diferentes paquetes (Combinations, Products, StockAvaliable) y se utiliza para realizar solicitudes GET a la API de PrestaShop. Aquí te mostramos cómo usarla.
+La clase `Get` se encuentra disponible para múltiples recursos como:
+- `Products`
+- `Orders` (antes Invoices)
+- `StockAvailables`
+- `Categories`
+- `Carts`
+- `Manufacturers`
+- `Addresses`
+- `Countries`
+- `Combinations`
+- `SpecificPrices`
+- `Images`
 
-Ejemplo con StockAvaliables.
+Se utiliza para realizar solicitudes GET a la API de PrestaShop. Aquí te mostramos cómo usarla.
+
+### Ejemplo con StockAvailables
 
 ```php
+use prestashop\prestashopWebserviceLib\StockAvailables\Application\Get;
+use prestashop\prestashopWebserviceLib\Shared\Domain\Display\DisplayFull;
+use prestashop\prestashopWebserviceLib\StockAvailables\Domain\Filter;
 
+$get = new Get('https://tu-tienda.com/api/', 'TU_TOKEN_API');
+$display = new DisplayFull();
+$filter = new Filter(id: '1');
 
+$result = $get($display, $filter);
+// $result es una instancia de PrestashopStockAvailable
 ```
+
+### Ejemplo con Categories
+
+```php
+use prestashop\prestashopWebserviceLib\Categories\Application\Get;
+use prestashop\prestashopWebserviceLib\Categories\Domain\Display;
+
+$get = new Get('https://tu-tienda.com/api/', 'TU_TOKEN_API');
+$display = new Display(id: true, name: true, active: true);
+
+$result = $get($display);
+// $result es una instancia de PrestashopCategory
+```
+
+## Recursos Disponibles
+
+La clase `Resources` en `Shared\Domain\Resources.php` contiene constantes para los **69 recursos oficiales** de PrestaShop, lo que facilita realizar consultas personalizadas o extender la librería.
 
 ## Método get
 
-El método `__invoke()` se utiliza para obtener todos los elementos disponibles. Evoca internamente un método `getRaw()` para obtener la respuesta en bruto de la API y la deserializa al objeto.
-
-```php
-$get = new Get('url','token');
-$display = new DisplayFull();
-$filter = new Filter(/* Parámetros del constructor */);
-
-$result = $get($display, $filter);
-```
+El método `__invoke()` se utiliza para obtener los elementos disponibles. Evoca internamente un método `getRaw()` para obtener la respuesta en bruto de la API y la deserializa al objeto correspondiente.
 
 ### Parámetros
 
-Este método acepta dos parámetros:
+Este método acepta:
 
-- `Display $display`: Este parámetro determina la cantidad de detalles que se deben devolver. Si deseas obtener todos los detalles, puedes usar la implementación del `DisplayFull`.
+- `Display $display`: Determina qué campos devolver. Puedes usar `DisplayFull` para todos o una instancia de `Display` específica del recurso para campos selectivos.
+- `Filter $filter` (opcional): Criterios de filtrado.
 
-- `Filter $filter` (opcional): Este parámetro se utiliza para especificar criterios de filtrado. Si lo dejas vacío, el método devolverá todos los recursos disponibles.
+## Método put (Solo StockAvailables por ahora)
 
-## Método put
-
-
-El método `__invoke()` se utiliza actualizar el objeto. Evoca internamente un método `put()` .
+El método `__invoke()` se utiliza para actualizar el objeto.
 
 ```php
+use prestashop\prestashopWebserviceLib\StockAvailables\Application\Put;
+use prestashop\prestashopWebserviceLib\StockAvailables\Domain\StockAvailable;
+use prestashop\prestashopWebserviceLib\StockAvailables\Domain\PrestashopStockAvailableUpdate;
+use prestashop\prestashopWebserviceLib\Shared\Domain\ShopParam;
+
 $put = new Put('url','token');
-$prestashopStockAvailableUpdate = new PrestashopStockAvailableUpdate(new StockAvailable(id: 1, quantity: 10));
+$item = new PrestashopStockAvailableUpdate([new StockAvailable(id: 1, quantity: 10)]);
 $shopParam = new ShopParam(shopId: 1); 
 
-$result = $put($prestashopStockAvailableUpdate, $filter, $shopParam);
+$result = $put($item, null, $shopParam);
 ```
 
-### Parámetros
+## Desarrollo y Contribución
 
-Este método acepta dos parámetros:
+Si deseas contribuir al proyecto o entender mejor su arquitectura interna, consulta nuestra guía técnica:
 
-- `PrestashopItemUpdate $item`: Necesita un item, el item tiene que tener mínimo id y los campos que se quieren actualizar.
-- `ShopParam $shopParam`: Indica la tienda de prestashop.
+- **[Technical Skill Guide](skills/prestashop-webservice-lib/SKILL.md)**: Detalles sobre arquitectura DDD, cómo añadir recursos y estándares de testing.
 
 ## License
 
